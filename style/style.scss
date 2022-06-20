@@ -1,0 +1,301 @@
+@import "registro-style";
+@import "buscador";
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+};
+html{
+    font-size:  62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+header{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../assets/img/suplementos1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 430;
+    .navbar{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgb(201, 190, 190);
+        position: fixed;
+        box-shadow: 0px 6px 30px -4px rgba(0,0,0,0.5);
+        z-index: 1000;
+        .enlace-nav{
+            img{
+                width:15rem;
+            }
+        }
+        nav{
+            ul{
+                display: flex;
+                list-style: none;
+                align-items:center;
+                margin: auto;
+                li{
+                    margin-right:3rem ;
+                    a{
+                        text-decoration: none;
+                        color: black;
+                        text-transform: uppercase;
+                        font-size: 1.8rem;
+                    }
+                    a:hover{
+                        color:rgb(202, 159, 39);
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .contenedor-botones-header{
+            button{
+                margin-right: 2rem;
+                padding: 0.3rem 1rem;
+                font-size:1.6rem;
+                background: transparent;
+                font-family: 'Roboto', sans-serif;
+                border-radius:0.5rem;
+                transition: all 300ms;
+            }
+            button:hover{
+                color:orangered;
+                border:0.2rem solid orangered
+            }
+        }
+    }
+    .saludo-header{
+        height: 100%;
+        text-align:center;
+        border-radius: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h1{
+            font-size: 5rem;
+            color:whitesmoke;
+            text-transform:uppercase;
+            text-shadow: 4px -2px 3px rgba(0,0,0,0.6);
+            margin-bottom: 5rem;
+        }
+        p{
+            font-size:3rem;
+            color:whitesmoke;
+            text-shadow: 4px -2px 3px rgba(0,0,0,0.6);
+        }
+    }
+    .container-carrito{
+        padding: 2rem;
+        width: 40%;
+        height: 100vh;
+        position: fixed;
+        background-color: rgb(255, 255, 255);
+        z-index: 1200;
+        top: 10.4rem;
+        box-shadow: 1px 2px 22px 1px rgba(0,0,0,0.5);
+        margin-left: 100%;
+        transition: all 600ms;
+        h2{
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-top: 2rem;
+            color:#d30808;
+            text-shadow: 4px -2px 3px rgba(0,0,0,0.2);
+        };
+        hr{
+            margin-bottom: 2rem;
+        }
+        table{
+            th{
+                font-size:1.3rem;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            #itemss{
+                td{
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    text-align: center;
+                    button{
+                        font-size: 1rem;
+                        font-weight: bold;
+                    }
+                }
+            }
+            #footer{
+                th{
+                    text-align:left;
+                }
+                td{
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    text-align: center;
+                }
+                button{
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+main{
+    width: 100%;
+    margin-top: 7rem;
+    .invitacion-registro{
+        .titulo{
+            text-align: center;
+            border-top: 1px solid grey;
+            border-bottom: 1px solid grey;
+            padding:2rem;
+            width: 45%;
+            margin:auto;
+            margin-bottom:12rem;
+            h2{
+                font-size:3rem;
+                line-height: 2rem;
+                text-transform: uppercase;
+            }
+        }
+    }
+    .nuestros-productos{
+        width: 100%;
+        margin-top: 15rem;
+
+        .titulo-productos{
+            text-align: center;
+            border-top: 1px solid grey;
+            border-bottom: 1px solid grey;
+            padding:2rem;
+            width: 45%;
+            margin:auto;
+            
+            h2{
+                font-size:3rem;
+                line-height: 2rem;
+                text-transform: uppercase;
+            }
+        }.productos-cards{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            .card{
+                margin: 4rem;
+                border: none;
+                width: 30rem;
+                transition: all 0.3s ease-out;
+                img{
+                    width: 30rem;
+                    text-align: center;
+                    margin: 0 auto;
+                }
+                h5{
+                    font-size:1.8rem;
+                    font-family: 'Roboto', sans-serif;
+                    text-transform: uppercase;
+                    margin-top:2rem;
+                }
+                p{
+                    font-size: 2rem;
+                }
+                button{
+                    margin-top: 1.8rem;
+                    padding: 1rem 4rem;
+                    border: 0.2rem solid #d30808;
+                    font-size: 1.4rem;
+                    background: transparent;
+                    font-weight: 600;
+                    cursor: pointer;
+                    color: #d30808;
+                    outline: none;
+                };
+                button:hover{
+                    background: #d30808;
+                    color: #fff;
+                };
+                .filter{
+                    display:none;
+                };
+            };
+            .card:hover{
+                border-bottom:2px solid #d30808;
+            }
+        }
+        .main-productos{
+            display: flex;
+            aside{
+                width: 20%;
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+                height:80vh;
+                margin-top:1rem;
+                h3{
+                    font-size:2rem;
+                    font-family: 'Roboto', sans-serif;
+                    text-transform: uppercase;
+                    margin-top:2rem;
+                    color:#d30808;
+                }
+                a{
+                    text-decoration: none;
+                    font-size: 1.6rem;
+                    color: black;
+                    margin-left: 3rem;
+                    cursor: pointer;
+                    font-weight: 500;
+                    margin-top: 1rem;
+                }
+                a:hover{
+                    color:#d30808;
+                    font-weight: 700;
+                    background-color: rgba(128, 128, 128, 0.625);
+                }
+                button{
+                    margin-top: 1.8rem;
+                    padding: 0.2rem 1rem;
+                    border: 0.2rem solid black;
+                    font-size: 1.6rem;
+                    background: transparent;
+                    font-weight: 600;
+                    cursor: pointer;
+                    color: black;
+                    outline: none;
+                };
+                button:hover{
+                    background: #d30808;
+                    color: #fff;
+                    border: 0.2rem solid white;
+                };
+            }
+            aside:hover{
+                border-right: 0.1rem solid grey;
+            }
+        }
+    }
+}
+footer{
+    div{
+        .contenedor-iconos{
+            a{
+                width:5rem;
+                height:5rem;
+                border-radius: 5rem;
+                padding: 0.5rem;
+                i{
+                    font-size:2.5rem
+                }
+            }
+        }
+    }
+}

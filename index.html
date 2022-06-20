@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Nombre: Juan Jose Reviglio Hernandez
+        Curso: Javascript
+        Comision: 30360
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TU SUPLEMENTO STORE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <header>
+        <!-- Contenedor del carrito oculto -->
+        <div class = "container-carrito">
+            <h2>Carrito de compras</h2>
+            <hr>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Acción</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody id="itemss"></tbody>
+                <tfoot>
+                    <tr id="footer">
+                        <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!-- Navbar -->
+        <div class = "navbar">
+            <a class="enlace-nav" href="./index.html">
+                <img src="./assets/aguila.jpg" alt="logoDeLaEmpresa">
+            </a>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Productos</a>
+                    </li>
+                    <li>
+                        <a href="#">Sobre Nosotros</a>
+                    </li>
+                    <li>
+                        <a href="#">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+            <section class="contenedor-botones-header">
+                <button>
+                    <i class="bi bi-person-circle"> Iniciar Sesión</i>
+                </button>
+                <button onclick="mostrarCarrito()">
+                    <i class="bi bi-cart" > 
+                        <span class="numero-carrito"></span> Carrito</i>
+                </button>
+                <button id="icon-search">
+                    <i class="bi bi-search fas fa-search" ></i>
+                </button>
+            </section>
+        </div>
+        <!-- Contenedor barra de busqueda oculta -->
+        <div id="ctn-bars-search">
+            <input type="text" id="inputSearch" placeholder="¿Qué producto desea buscar?">
+        </div>
+        <!-- Contenedor del div que obscurse la pantalla -->
+        <div id="cover-ctn-search"></div>
+        <!-- Imagen de fondo y saludo de bienvenida-->
+        <div class="saludo-header">
+            <h1>¡Todo en un solo lugar!</h1>
+            <p>TODOS LOS SUPLEMENTOS QUE NECESITAS </p>
+            <p>¡Estas en el lugar correcto!</p>
+        </div>
+    </header>  
+    <main>
+        <!-- Formulario de registro/Inicio de Sesion -->
+        <section class="invitacion-registro">
+            <div class="titulo">
+                <h2>Iniciar sesión</h2>
+            </div>
+            <div class="contenedor__todo">
+                <div class="caja__trasera">
+                    <div class="caja__trasera-login">
+                        <h3>¿Ya tienes una cuenta?</h3>
+                        <p>Inicia sesión para entrar en la página</p>
+                        <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                    </div>
+                    <div class="caja__trasera-register">
+                        <h3>¿Aún no tienes una cuenta?</h3>
+                        <p>Regístrate para que puedas iniciar sesión</p>
+                        <button id="btn__registrarse">Regístrarse</button>
+                    </div>
+                </div>
+                <div class="contenedor__login-register">
+                    <form action="" class="formulario__login">
+                        <h3>Iniciar Sesión</h3>
+                        <input class="correo-electronico" type="text" placeholder="Correo Electronico" required>
+                        <input class="contraseña" type="password" placeholder="Contraseña" required>
+                        <button onclick="validar" >Entrar</button>
+                        <p class="alerta"></p>
+                    </form>
+                    <form action="" class="formulario__register">
+                        <h3>Regístrarse</h3>
+                        <input class = "nombre" type="text" placeholder="Nombre completo">
+                        <input class="correo-electronico" type="text" placeholder="Correo Electronico">
+                        <input class="usuario" type="text" placeholder="Usuario">
+                        <input class="contraseña" type="password" placeholder="Contraseña">
+                        <button onclick="validar">Registrarse</button>
+                        <p class = "alerta"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- Seccion de productos -->
+        <section class="nuestros-productos">
+            <div class="titulo-productos">
+                <h2>Productos</h2>
+            </div>
+            <section class="main-productos">
+                <!-- Div donde imprimo los productos desde JS -->
+                <div class="productos-cards" id="items">
+                </div>
+            </section>
+        </section>
+        <!-- Template utilizado para la creacion de las card de prodctos -->
+        <template id="template-card">
+                <div class="card">
+                    <img src="" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Titulo</h5>
+                        <p>$ <span>precio</span></p>
+                        <button class="button-card">Comprar</button>
+                    </div>
+                </div>
+        </template>
+        <!-- Template para imprimir footer del carrito de compras -->
+        <template id="template-footer">
+            <th scope="row" colspan="2">Total productos</th>
+            <td>10</td>
+            <td>
+                <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+                    Vaciar todo
+                </button>
+            </td>
+            <td class="font-weight-bold">$ <span></span></td>
+        </template>
+        <!-- Template para imprimir mi carrito de compras -->
+        <template id="template-carrito">
+            <tr>
+            <th scope="row">id</th>
+            <td>Café</td>
+            <td>1</td>
+            <td>
+                <button class="btn btn-info btn-sm">
+                    +
+                </button>
+                <button class="btn btn-danger btn-sm">
+                    -
+                </button>
+            </td>
+            <td>$ <span>500</span></td>
+            </tr>
+        </template>
+    </main>
+    <footer class="bg-light text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+            <section class="mb-4 contenedor-iconos">
+            <!-- Facebook -->
+                <a class="btn btn-primary btn-floating m-1 "style="background-color: #3b5998;" href="#!" role="button"> 
+                    <i class="fab bi bi-facebook"></i>     
+                </a>
+            <!-- Twitter -->
+                <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#!" role="button">
+                    <i class="fab bi-twitter"></i>
+                </a>
+            <!-- Google -->
+                <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39;" href="#!" role="button">
+                    <i class="fab bi-google"></i>
+                </a>
+            <!-- Instagram -->
+                <a class="btn btn-primary btn-floating m-1"style="background-color: #ac2bac;" href="#!"role="button">
+                    <i class="fab bi-instagram"></i>
+                </a>
+            <!-- Linkedin -->
+                <a class="btn btn-primary btn-floating m-1"style="background-color: #0082ca;" href="#!" role="button">
+                    <i class="fab bi-linkedin"></i>
+                </a>
+            <!-- Github -->
+                <a class="btn btn-primary btn-floating m-1" style="background-color: #333333;" href="#!" role="button">
+                    <i class="fab bi-github"></i>
+                </a>
+            </section>
+        </div>
+    <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+    </footer>
+    <!-- Libreria sweet Alert 2  -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Libreria bootstrap v5.1.3 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- archivos Js creados para el proyecto -->
+    <script src="./script/formulario.js"></script>
+    <script src="./script/buscador.js"></script>
+    <script src="./script/script.js"></script>
+</body>
+</html>

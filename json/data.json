@@ -1,0 +1,58 @@
+[
+    {
+        "precio": 2350,
+        "id": 1,
+        "title": "Bcca marca DYMATIZE ",
+        "img": "../assets/productos/bcaa1.jpg",
+        "categoria": "BCCA"
+    },
+    {
+        "precio": 5200,
+        "id": 2,
+        "title": "Bcca marca GENERATIONS FIT",
+        "img": "../assets/productos/bcaa2.jpg",
+        "categoria": "BCAA"
+    },
+    {
+        "precio": 2700,
+        "id": 3,
+        "title": "Creatina xxl marca pro nutrition ",
+        "img": "../assets/productos/creatina1.jpg",
+        "categoria": "CREATINA"
+    },
+    {
+        "precio": 2050,
+        "id": 4,
+        "title": "Creatina Drive marca Nutrex",
+        "img": "../assets/productos/creatina2.jpg",
+        "categoria": "CREATINA"
+    },
+    {
+        "precio": 2050,
+        "id": 5,
+        "title": "Creatina Monohidrato marca Star Nutrition",
+        "img": "../assets/productos/creatina3.jpg",
+        "categoria": "CREATINA"
+    },
+    {
+        "precio": 2300,
+        "id": 6,
+        "title": "Proteina BIOPROT marca Hoch Spot",
+        "img": "../assets/productos/proteina 3.jpg",
+        "categoria": "PROTEINA"
+    },
+    {
+        "precio": 3600,
+        "id": 7,
+        "title": "Whey Protein marca Star Nutrition",
+        "img": "../assets/productos/proteina1.jpg",
+        "categoria": "PROTEINA"
+    },
+    {
+        "precio": 3600,
+        "id": 8,
+        "title": "Whey Protein Premium marca Star Nutrition ",
+        "img": "../assets/productos/proteina2.jpg",
+        "categoria": "PROTEINA"
+    }
+]
